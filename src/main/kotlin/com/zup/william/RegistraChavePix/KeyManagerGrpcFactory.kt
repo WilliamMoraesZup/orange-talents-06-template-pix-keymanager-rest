@@ -1,6 +1,7 @@
 package com.zup.william.RegistraChavePix
 
 import com.william.ChavePixServiceConsultaGrpc
+import com.william.ChavePixServiceListaChavesClienteGrpc
 import com.william.ChavePixServiceRegistraGrpc
 import com.william.ChavePixServiceRemoveGrpc
 import io.grpc.ManagedChannel
@@ -23,5 +24,7 @@ class KeyManagerGrpcFactory(
     @Singleton
     fun detalha() = ChavePixServiceConsultaGrpc.newBlockingStub(channel)
 
+    @Singleton
+    fun listagem() = ChavePixServiceListaChavesClienteGrpc.newBlockingStub(channel)
 
 }
