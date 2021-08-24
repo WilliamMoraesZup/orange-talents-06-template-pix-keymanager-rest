@@ -1,6 +1,8 @@
 package com.zup.william.RegistraChavePix
 
+import com.william.ChavePixServiceConsultaGrpc
 import com.william.ChavePixServiceRegistraGrpc
+import com.william.ChavePixServiceRemoveGrpc
 import io.grpc.ManagedChannel
 import io.micronaut.context.annotation.Factory
 import io.micronaut.grpc.annotation.GrpcChannel
@@ -14,6 +16,12 @@ class KeyManagerGrpcFactory(
 
     @Singleton
     fun registraChave() = ChavePixServiceRegistraGrpc.newBlockingStub(channel)
+
+    @Singleton
+    fun remove() = ChavePixServiceRemoveGrpc.newBlockingStub(channel)
+
+    @Singleton
+    fun detalha() = ChavePixServiceConsultaGrpc.newBlockingStub(channel)
 
 
 }

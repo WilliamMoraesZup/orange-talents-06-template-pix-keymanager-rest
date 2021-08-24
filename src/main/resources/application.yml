@@ -12,3 +12,7 @@ grpc:
   channels:
     keyManager:
       address: '${KEY_MANAGER_HOST:localhost:}:${KEY_MANAGER_PORT:50051}'
+
+jackson:
+  serialization:
+    WRITE_DATES_AS_TIMESTAMPS: false
