@@ -1,4 +1,4 @@
-package com.zup.william.DeletaChavePix
+package com.zup.william.deletaChavePix
 
 import com.william.RemoveChavePixRequest
 import io.micronaut.core.annotation.Introspected

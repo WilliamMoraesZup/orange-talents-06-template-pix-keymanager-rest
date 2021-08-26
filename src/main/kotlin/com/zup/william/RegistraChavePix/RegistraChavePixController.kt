@@ -1,6 +1,7 @@
-package com.zup.william.RegistraChavePix
+package com.zup.william.registraChavePix
 
 import com.william.ChavePixServiceRegistraGrpc
+import io.grpc.Status
 import io.grpc.StatusRuntimeException
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Body
@@ -25,11 +26,16 @@ class RegistraChavePixController(
             LOGGER.info("Chamando o chavePixServiceRegistra... ")
             val grpcResponse = chavePixServiceRegistra.registra(grpcRequest)
             LOGGER.info("Retorno: ${grpcResponse} ")
-            HttpResponse.ok()
+            HttpResponse.created(HttpResponse.uri("/api/chave/$clientId/api/${grpcResponse.pixId}"))
+
 
         } catch (e: StatusRuntimeException) {
-            LOGGER.warn("A chave já se encontra registrada !")
-            HttpResponse.unprocessableEntity()
+            when (e.status.code) {
+                Status.ALREADY_EXISTS.code -> HttpResponse.unprocessableEntity<Any?>()
+                    .also { LOGGER.warn("A chave já se encontra registrada !") }
+                else -> HttpResponse.badRequest("Outro erro ${e.status.code}")
+            }
+
         } catch (e: Exception) {
             LOGGER.warn("Outro erro qualquer.. ${e.message}")
             HttpResponse.badRequest(e.message)

@@ -1,4 +1,4 @@
-package com.zup.william.RegistraChavePix
+package com.zup.william.registraChavePix
 
 
 import io.micronaut.core.annotation.AnnotationValue
@@ -21,9 +21,9 @@ annotation class ValidaTipoChave(
 
 class ValidaTipoChaveValidator : ConstraintValidator<ValidaTipoChave, CadastraChavePixRequestDTO> {
       override fun isValid(
-        value: CadastraChavePixRequestDTO?,
-        annotationMetadata: AnnotationValue<ValidaTipoChave>,
-        context: ConstraintValidatorContext
+          value: CadastraChavePixRequestDTO?,
+          annotationMetadata: AnnotationValue<ValidaTipoChave>,
+          context: ConstraintValidatorContext
     ): Boolean {
         if (value?.tipoDaChave == null) {
             return false

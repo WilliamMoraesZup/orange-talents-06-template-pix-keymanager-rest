@@ -1,4 +1,4 @@
-package com.zup.william.DeletaChavePix
+package com.zup.william.deletaChavePix
 
 import com.william.ChavePixServiceRemoveGrpc
 import io.grpc.Status

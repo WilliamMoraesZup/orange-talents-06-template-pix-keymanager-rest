@@ -1,4 +1,4 @@
-package com.zup.william.RegistraChavePix
+package com.zup.william.registraChavePix
 
 import javax.validation.Constraint
 import javax.validation.Payload

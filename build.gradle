@@ -41,6 +41,10 @@ dependencies {
     implementation('org.hibernate:hibernate-validator:7.0.1.Final') // Add CPFValidator
     implementation('io.micronaut.grpc:micronaut-grpc-client-runtime:2.5.0')
     annotationProcessor('io.micronaut:micronaut-inject-java:2.5.12')
+
+    testImplementation('org.mockito:mockito-core:3.12.1')
+
+    testImplementation('org.mockito:mockito-inline:3.10.0')
 }
 
 

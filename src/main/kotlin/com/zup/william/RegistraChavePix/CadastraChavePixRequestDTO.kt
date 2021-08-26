@@ -1,4 +1,4 @@
-package com.zup.william.RegistraChavePix
+package com.zup.william.registraChavePix
 
 import com.william.CadastraChavePixRequest
 import com.william.TipoDaChave
